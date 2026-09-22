@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  node-api:
+    build:
+      context: ./backend-node
+      dockerfile: Dockerfile
+    container_name: backend-node-service
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - NODE_ENV=development
+    networks:
+      - app-network
+
+  go-api:
+    build:
+      context: ./backend-go
+      dockerfile: Dockerfile
+    container_name: backend-go-service
+    ports:
+      - "8080:8080"
+    environment:
+      - PORT=8080
+      # La URL apunta al nombre del servicio definido en docker-compose
+      - NODE_SERVICE_URL=http://node-api:3000/api/v1/statistics
+    depends_on:
+      - node-api
+    networks:
+      - app-network
+
+  frontend:
+    image: nginx:alpine
+    container_name: frontend-service
+    ports:
+      - "80:80"
+    volumes:
+      - ./frontend:/usr/share/nginx/html
+    depends_on:
+      - go-api
+
+networks:
+  app-network:
+    driver: bridge

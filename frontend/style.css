@@ -1,0 +1,111 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f9;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 30px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.form-group {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.form-group input {
+    width: 60px;
+    padding: 5px;
+}
+
+.matrix-grid {
+    display: grid;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.cell-input {
+    width: 50px;
+    height: 40px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.loading {
+    text-align: center;
+    font-weight: bold;
+    color: #007bff;
+    margin: 20px 0;
+}
+
+.results-grid {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    overflow-x: auto;
+}
+
+.matrix-table {
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.matrix-table td {
+    border: 1px solid #ccc;
+    padding: 8px 12px;
+    text-align: center;
+    background: #fdfdfd;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+.stat-box {
+    background: #eef2f7;
+    padding: 15px;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat-box strong {
+    font-size: 1.2rem;
+    color: #2c3e50;
+    margin-top: 5px;
+}

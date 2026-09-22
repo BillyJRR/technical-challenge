@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafío Técnico - Procesamiento de Matrices</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Desafío Técnico - Rotación, Factorización QR y Estadísticas</h1>
+
+        <!-- Configuración y Creación de Matriz -->
+        <div class="card">
+            <h2>1. Configurar Matriz de Entrada</h2>
+            <div class="form-group">
+                <label for="rows">Filas:</label>
+                <input type="number" id="rows" min="1" max="10" value="3">
+                <label for="cols">Columnas:</label>
+                <input type="number" id="cols" min="1" max="10" value="3">
+                <button onclick="generateMatrixInput()">Generar Matriz</button>
+            </div>
+
+            <div id="matrix-input-container" class="matrix-grid"></div>
+            <button id="process-btn" class="btn-primary" onclick="processMatrix()" style="display:none;">Procesar
+                Matriz</button>
+        </div>
+
+        <!-- Indicador de Carga -->
+        <div id="loading" class="loading" style="display:none;">Procesando datos entre Go API y Node.js API...</div>
+
+        <!-- Secciones de Resultados -->
+        <div id="results-container" style="display:none;">
+            <div class="card">
+                <h2>2. Resultados de Rotación y Factorización QR (Go API)</h2>
+                <div class="results-grid">
+                    <div>
+                        <h3>Matriz Rotada (90°)</h3>
+                        <div id="rotated-matrix-display"></div>
+                    </div>
+                    <div>
+                        <h3>Matriz Q (Ortogonal)</h3>
+                        <div id="q-matrix-display"></div>
+                    </div>
+                    <div>
+                        <h3>Matriz R (Triangular Sup.)</h3>
+                        <div id="r-matrix-display"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>3. Estadísticas Calculadas (Node.js API)</h2>
+                <div class="stats-grid">
+                    <div class="stat-box"><span>Máximo:</span> <strong id="stat-max">-</strong></div>
+                    <div class="stat-box"><span>Mínimo:</span> <strong id="stat-min">-</strong></div>
+                    <div class="stat-box"><span>Promedio:</span> <strong id="stat-avg">-</strong></div>
+                    <div class="stat-box"><span>Suma Total:</span> <strong id="stat-sum">-</strong></div>
+                    <div class="stat-box"><span>¿Alguna Matriz Diagonal?:</span> <strong id="stat-diag">-</strong></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
